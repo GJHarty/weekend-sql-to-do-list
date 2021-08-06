@@ -8,7 +8,7 @@ Creating a to-do list that allows a user to input a task and store it in a datab
 
 ## To Do
 
-[] Setup Folders
+[x] Setup Folders
     [x] html
         [x] source and link all components
     [x] css
@@ -34,11 +34,13 @@ Creating a to-do list that allows a user to input a task and store it in a datab
         [x] create table
 
 [] Client
+    [] setup onready
     [] Post
     [] Get  // first
         [] append to DOM
         [] include data-id
     [] Put
+        [] setup click handlers
     [] Delete
 
 [] router
