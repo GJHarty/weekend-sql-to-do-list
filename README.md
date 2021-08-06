@@ -8,29 +8,31 @@ Creating a to-do list that allows a user to input a task and store it in a datab
 
 ## To Do
 
-[] Setup
-    [] html
-        [] source and link all components
-    [] css
-    [] jquery
-    [] client
+[] Setup Folders
+    [x] html
+        [x] source and link all components
+    [x] css
+    [x] jquery
+    [x] client
     [] server
         [] import modules
             [] express
             [] body-parser
             [] pool
-    [] modules
-        [] pool
-    [] routes
-        []router
-    [] install libraries
-        [] express
-        [] body-parser
-        [] postgresql
-            [] start service
-        [] pg
-    [] Postico
-        [] create table
+    [x] modules
+        [x] pool
+    [x] routes
+        [x]router
+    [x] install libraries
+        [x] express
+        [x] body-parser
+        [x] postgresql
+            [x] start service
+        [x] pg
+    [x] add gitignore
+    [x] Postico
+        [x] create database
+        [x] create table
 
 [] Client
     [] Post
