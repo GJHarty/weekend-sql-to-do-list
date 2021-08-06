@@ -14,11 +14,10 @@ Creating a to-do list that allows a user to input a task and store it in a datab
     [x] css
     [x] jquery
     [x] client
-    [] server
-        [] import modules
-            [] express
-            [] body-parser
-            [] pool
+    [x] server
+        [x] import modules
+            [x] express
+            [x] body-parser
     [x] modules
         [x] pool
     [x] routes
@@ -43,6 +42,7 @@ Creating a to-do list that allows a user to input a task and store it in a datab
     [] Delete
 
 [] router
+    [] import pool
     [] post
     [] get  // first
     [] Put
