@@ -23,12 +23,13 @@ Creating a to-do list that allows a user to input a task and store it in a datab
         [] pool
     [] routes
         []router
-    [] install libraries
-        [] express
-        [] body-parser
-        [] postgresql
-            [] start service
-        [] pg
+    [x] install libraries
+        [x] express
+        [x] body-parser
+        [x] postgresql
+            [x] start service
+        [x] pg
+    [] add gitignore
     [] Postico
         [] create table
 
