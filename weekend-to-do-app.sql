@@ -1,7 +1,7 @@
 CREATE TABLE "todo-list" 
     ("id" SERIAL PRIMARY KEY,
      "taskDesc" VARCHAR (250) NOT NULL,
-     "complete" VARCHAR(15) DEFAULT 'pending'
+     "status" VARCHAR(15) DEFAULT 'pending'
     );
 
 INSERT INTO "todo-list"
