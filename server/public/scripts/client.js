@@ -31,10 +31,14 @@ function loadTasks(){
         for (let task of res){
             tableBody.append(`
                 <tr data-id=${task.id} data-isComplete=${task.complete}>
-                    <td> id="taskDescription>${task.task}</td>
+                    <td id="taskDescription">${task.task}</td>
                     <td id="taskStatus">${task.complete}</td>
-                    <button id="completeBtn">Complete Task</button>
+                    <td>
+                        <button id="completeBtn">Complete Task</button>
+                    </td>
+                    <td>
                     <button id="deleteBtn">Delete Task</button>
+                    </td>
                 </tr>
             `);
         };

@@ -11,7 +11,7 @@ const port = 5000;
 app.use(express.static('server/public'))
 
 // link router
-//app.use('/todo', router);
+app.use('/tasks', router);
 
 // setup server listen
 app.listen(port, () => {
