@@ -3,10 +3,15 @@ const bodyParser = require('body-parser');
 const router = require('./routes/router');
 
 const app = express();
+app.use(bodyParser.urlencoded({extended: true}));
 
 const port = 5000;
 
-app.use(bodyParser.urlencoded({extended: true}));
+// Serve back static files by default
+app.use(express.static('server/public'))
+
+// link router
+app.use('/tasks', router);
 
 // setup server listen
 app.listen(port, () => {
