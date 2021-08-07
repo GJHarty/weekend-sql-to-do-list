@@ -112,10 +112,11 @@ function renderTasks(tasks) {
 
     // loop through tasklist from db and append new row to DOM
     for (let task of tasks){
+
         tableBody.append(`
             <div class="row" data-id=${task.id} data-status=${task.status}>
                 <div class="col-6 taskDescription">${task.taskDesc}</div>
-                <div class="col-2 taskStatus">${task.status}</div>
+                ${pendingOrComplete(task)}
                 <div class="col-2 text-center">
                     <button class="btn btn-success completeBtn">Complete Task</button>
                 </div>
@@ -127,3 +128,11 @@ function renderTasks(tasks) {
     };
 };
 
+// determine which border to use in the status column 
+function pendingOrComplete(task){
+    if (task.status === 'Pending') {
+        return `<div class="col-2 pendingTask">${task.status}</div>`
+    } else {
+        return `<div class="col-2 completedTask">${task.status}</div>`
+    };
+};
