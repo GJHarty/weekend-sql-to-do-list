@@ -33,20 +33,20 @@ Creating a to-do list that allows a user to input a task and store it in a datab
         [x] create database
         [x] create table
 
-[] Client
-    [] setup onready
+[x] Client
+    [x] setup onready
     [] Post
-    [] Get  // first
-        [] append to DOM
-        [] include data-id
+    [x] Get  // first
+        [x] append to DOM
+        [x] include data-id
     [] Put
         [] setup click handlers
     [] Delete
 
 [] router
-    [] import pool
+    [x] import pool
     [] post
-    [] get  // first
+    [x] get  // first
     [] Put
     [] Delete
 
