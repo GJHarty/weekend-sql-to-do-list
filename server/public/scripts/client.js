@@ -13,9 +13,11 @@ function eventHandler() {
 function submitTask(){
     console.log('submitting task');
 
+    let input = $('#taskDesc').val();
+
     // assign input values to object
     let newTask = {
-        taskDesc: $('#taskDesc').val()
+        taskDesc: input
     };
     console.log('newTask', newTask);
     // call ajax
@@ -28,7 +30,9 @@ function submitTask(){
         console.log('Response from server', res);
         
         // refresh DOM
+        // empty input field
         loadTasks();
+        $('#taskDesc').val('');
     }).catch((err) => {
         console.log('error in client POST ', err);
         alert(`There was an error grabbing the inputs. Please ensure all fields have been added.`);
@@ -49,36 +53,40 @@ function deleteTask(){
 function loadTasks(){
     console.log('loading tasks');
 
-    // assign tbody to variable
-    let tableBody = $('#tasksList');
-
     // call ajax
     $.ajax({
         type: 'GET',
         url: '/tasks'
     }).then((res) => {
         console.log('response from router ', res);
-        // empty table
-        tableBody.empty();
-
-        // loop through tasklist from db and append to DOM
-        for (let task of res){
-            tableBody.append(`
-                <tr data-id=${task.id} data-isComplete=${task.complete}>
-                    <td id="taskDescription">${task.taskDesc}</td>
-                    <td id="taskStatus">${task.complete}</td>
-                    <td>
-                        <button class="completeBtn">Complete Task</button>
-                    </td>
-                    <td>
-                        <button class="deleteBtn">Delete Task</button>
-                    </td>
-                </tr>
-            `);
-        };
+        renderTasks(res);
     }).catch((err) => {
         console.log('error in client GET ', err);
         alert(`There was an error loading files. Please try again.`);
     });
+};
+
+function renderTasks(tasks) {
+    // assign tbody to variable
+    let tableBody = $('#tasksList');
+
+    // empty table
+    tableBody.empty();
+
+    // loop through tasklist from db and append to DOM
+    for (let task of tasks){
+        tableBody.append(`
+            <tr data-id=${task.id} data-isComplete=${task.complete}>
+                <td id="taskDescription">${task.taskDesc}</td>
+                <td id="taskStatus">${task.complete}</td>
+                <td>
+                    <button class="completeBtn">Complete Task</button>
+                </td>
+                <td>
+                    <button class="deleteBtn">Delete Task</button>
+                </td>
+            </tr>
+        `);
+    };
 };
 
