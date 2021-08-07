@@ -1,11 +1,11 @@
 CREATE TABLE "todo-list" 
     ("id" SERIAL PRIMARY KEY,
-     "task" VARCHAR (250) NOT NULL,
+     "taskDesc" VARCHAR (250) NOT NULL,
      "complete" VARCHAR(15) DEFAULT 'pending'
     );
 
 INSERT INTO "todo-list"
-    ("task")
+    ("taskDesc")
 VALUES  
     ('Do the dishes'),
     ('Clean the bathroom'),
