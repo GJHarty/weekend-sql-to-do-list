@@ -115,7 +115,7 @@ function renderTasks(tasks) {
 
         tableBody.append(`
             <div class="row" data-id=${task.id} data-status=${task.status}>
-                <div class="col-6 taskDescription">${task.taskDesc}</div>
+                <div class="col-6 taskDescription text-break">${task.taskDesc}</div>
                 ${pendingOrComplete(task)}
                 <div class="col-2 text-center">
                     <button class="btn btn-success completeBtn">Complete Task</button>
@@ -131,7 +131,7 @@ function renderTasks(tasks) {
 // determine which border to use in the status column 
 function pendingOrComplete(task){
     if (task.status === 'Pending') {
-        return `<div class="col-2 pendingTask">${task.status}</div>`
+        return `<div class="col-2 pendingTask"><i>${task.status}</i></div>`
     } else {
         return `<div class="col-2 completedTask">${task.status}</div>`
     };
