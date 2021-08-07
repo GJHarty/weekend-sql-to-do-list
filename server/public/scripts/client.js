@@ -70,6 +70,20 @@ function submitTask(){
 // handle delete button
 function deleteTask(){
     console.log('delete button clicked');
+
+    // target row id button is in
+    let taskId = $(this).parents('tr').data('id');
+    console.log(taskId);
+
+    $.ajax({
+        type: 'DELETE',
+        url: `/tasks/${taskId}`
+    }).then((res) => {
+        console.log(res);
+        loadTasks();
+    }).catch((err) => {
+        console.log('DELETE /tasks failed', err);
+    });
 };
 
 // load tasks on startup

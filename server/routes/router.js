@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
     console.log('getting task list');
 
     // add sql query
-    let queryText = `SELECT * FROM "todo-list"`;
+    let queryText = `SELECT * FROM "todo-list" ORDER BY "status" DESC`;
 
     // call pool
     pool.query(queryText)
@@ -68,6 +68,26 @@ router.put('/:id', (req, res) => {
         })
         .catch((err) => {
             console.log('PUT Router error', err);
+            res.sendStatus(500);
+        });
+});
+
+// DELETE task
+// remove task from database
+router.delete('/:id', (req, res) => {
+    console.log('in router DELETE');
+    let taskId = req.params.id;
+
+    // setup sql and params
+    let sqlQuery = `DELETE FROM "todo-list" WHERE "id"=$1`;
+    let sqlParams = [taskId];
+
+    // send delete request to db
+    pool.query(sqlQuery, sqlParams)
+        .then((dbRes) => {
+            res.sendStatus(200);
+        })
+        .catch((err) => {
             res.sendStatus(500);
         });
 });
