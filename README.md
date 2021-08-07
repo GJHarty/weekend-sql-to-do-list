@@ -35,7 +35,7 @@ Creating a to-do list that allows a user to input a task and store it in a datab
 
 [x] Client
     [x] setup onready
-    [] Post
+    [x] Post
     [x] Get  // first
         [x] append to DOM
         [x] include data-id
@@ -45,7 +45,7 @@ Creating a to-do list that allows a user to input a task and store it in a datab
 
 [] router
     [x] import pool
-    [] post
+    [x] post
     [x] get  // first
     [] Put
     [] Delete

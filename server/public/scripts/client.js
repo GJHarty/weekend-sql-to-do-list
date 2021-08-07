@@ -9,6 +9,34 @@ function eventHandler() {
     loadTasks();
 };
 
+// handle complete button
+// update value of task.complete from pending to Completed
+function completeTask(){
+    console.log('in completeTask');
+
+    // target task id
+    let taskId = $(this).parents('tr').data('id'); // ts id="taskStatus"
+    console.log(taskId);
+    
+    // target task status
+    let taskStatus = $(this).parents('tr').data('status');
+    console.log(taskStatus);
+
+    // update task column
+    $.ajax({
+        type: 'PUT',
+        url: `/tasks/${taskId}`,
+        data: {
+            taskStatus: 'Complete'
+        }
+    }).then((res) => {
+        console.log('PUT /tasks succeeded', res);
+        renderTasks(res);
+    }).catch((err) => {
+        console.log('PUT /tasks failed', err);
+    });
+};
+
 // handle submit button 
 function submitTask(){
     console.log('submitting task');
@@ -37,11 +65,6 @@ function submitTask(){
         console.log('error in client POST ', err);
         alert(`There was an error grabbing the inputs. Please ensure all fields have been added.`);
     });
-};
-
-// handle complete button
-function completeTask(){
-    console.log('complete button clicked');
 };
 
 // handle delete button
@@ -73,12 +96,12 @@ function renderTasks(tasks) {
     // empty table
     tableBody.empty();
 
-    // loop through tasklist from db and append to DOM
+    // loop through tasklist from db and append new row to DOM
     for (let task of tasks){
         tableBody.append(`
-            <tr data-id=${task.id} data-isComplete=${task.complete}>
+            <tr data-id=${task.id} data-status=${task.status}>
                 <td id="taskDescription">${task.taskDesc}</td>
-                <td id="taskStatus">${task.complete}</td>
+                <td id="taskStatus">${task.status}</td>
                 <td>
                     <button class="completeBtn">Complete Task</button>
                 </td>
