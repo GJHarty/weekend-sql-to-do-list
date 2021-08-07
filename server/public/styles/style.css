@@ -1,3 +1,76 @@
 * {
-    font-family: futura;
+    box-sizing: border-box;
+}
+
+[class*="col-"] {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: #dcdde0;
+    border: 1px solid #cbcbcc;
+}
+
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 20px;
+}
+
+.row {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+body {
+    margin-left: 125px;
+    margin-right: 125px;
+    background: url(./images/small_steps/small_steps.png) repeat 0 0;
+}
+
+#taskDesc {
+    width: 60%;
+    margin: 10px 0 5px;
+}
+
+#submitBtn {
+    width: 10%;
+}
+
+#headerId {
+    background-color: #dcdde0;
+    width: 500px;
+    padding: 20px;
+}
+
+button {
+    border-radius: 15px;
+}
+
+.jumbotron {
+    margin-top: 50px;
+}
+
+h1, .lead {
+    font-weight: 700;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.tableHead, h3 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 25px;
+}
+
+h3 {
+    font-weight: 700;
+}
+
+.taskStatus {
+    border: 2px solid red;
+}
+
+.taskCompleted {
+    border: 4px solid green;
+    font-size: 50px;
 }
