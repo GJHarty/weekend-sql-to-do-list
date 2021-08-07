@@ -31,7 +31,7 @@ function completeTask(){
         }
     }).then((res) => {
         console.log('PUT /tasks succeeded', res);
-        renderTasks(res);
+        loadTasks();
     }).catch((err) => {
         console.log('PUT /tasks failed', err);
     });
@@ -90,9 +90,9 @@ function loadTasks(){
 };
 
 function renderTasks(tasks) {
-    // assign tbody to variable
+    // assign table body 
     let tableBody = $('#tasksList');
-
+    
     // empty table
     tableBody.empty();
 
