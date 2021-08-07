@@ -3,8 +3,8 @@ $(document).ready(eventHandler);
 function eventHandler() {
     // button handlers
     $('#submitBtn').on('click', submitTask);
-    $('#tasksList').on('click', '.completeBtn', completeTask);
-    $('#tasksList').on('click', '.deleteBtn', deleteTask);
+    $('.tableDiv').on('click', '.completeBtn', completeTask);
+    $('.tableDiv').on('click', '.deleteBtn', deleteTask);
 
     loadTasks();
 };
@@ -15,11 +15,11 @@ function completeTask(){
     console.log('in completeTask');
 
     // target task id
-    let taskId = $(this).parents('tr').data('id'); // ts id="taskStatus"
+    let taskId = $(this).parents('.row').data('id'); // ts id="taskStatus"
     console.log(taskId);
     
     // target task status
-    let taskStatus = $(this).parents('tr').data('status');
+    let taskStatus = $(this).parents('.row').data('status');
     console.log(taskStatus);
 
     // update task column
@@ -72,7 +72,7 @@ function deleteTask(){
     console.log('delete button clicked');
 
     // target row id button is in
-    let taskId = $(this).parents('tr').data('id');
+    let taskId = $(this).parents('.row').data('id');
     console.log(taskId);
 
     $.ajax({
@@ -105,7 +105,7 @@ function loadTasks(){
 
 function renderTasks(tasks) {
     // assign table body 
-    let tableBody = $('#tasksList');
+    let tableBody = $('.tableRows');
     
     // empty table
     tableBody.empty();
@@ -113,16 +113,16 @@ function renderTasks(tasks) {
     // loop through tasklist from db and append new row to DOM
     for (let task of tasks){
         tableBody.append(`
-            <tr data-id=${task.id} data-status=${task.status}>
-                <td id="taskDescription">${task.taskDesc}</td>
-                <td id="taskStatus">${task.status}</td>
-                <td>
-                    <button class="completeBtn">Complete Task</button>
-                </td>
-                <td>
-                    <button class="deleteBtn">Delete Task</button>
-                </td>
-            </tr>
+            <div class="row" data-id=${task.id} data-status=${task.status}>
+                <div class="col-6 taskDescription">${task.taskDesc}</div>
+                <div class="col-2 taskStatus">${task.status}</div>
+                <div class="col-2 text-center">
+                    <button class="btn btn-success completeBtn">Complete Task</button>
+                </div>
+                <div class="col-2 text-center">
+                    <button class="btn btn-danger deleteBtn">Delete Task</button>
+                </div>
+            </div>
         `);
     };
 };

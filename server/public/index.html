@@ -4,28 +4,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weekend To-Do App</title>
     <script src="./vendors/jquery.js"></script>
     <script src="./scripts/client.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <link rel="stylesheet" href="./styles/style.css">
+    <title>Weekend To-Do App</title>
 </head>
 <body>
-    <h1>Weekend To-Do App</h1>
-    <div id="taskForm">
-        <input type="text" id="taskDesc" placeholder="Task">
-        <button id="submitBtn">Submit</button>
-    </div>
-    <div id="tasksDiv">
-        <table>
-            <thead>
-                <tr>
-                    <th>Task</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody id="tasksList">
-            </tbody>
-        </table>
-    </div>
+    <main role="main">
+        <section>
+            <div class="container text-center jumbotron" id="headerId">
+                <h1>Weekend To-Do List</h1>
+                <p class="lead">Welcome to my app! You can use this app to manage your daily and weekly tasks. You can start by submitting a task below!</p>
+            </div>
+            <div id="taskForm" class="container text-center">
+                <h3>Add a New Task</h3>
+                <div>
+                    <input type="text" id="taskDesc" placeholder="Task">
+                </div>
+                <div>
+                    <button id="submitBtn" style="width: 20%">Submit</button>
+                </div>
+            </div>
+            <div class="container-fluid tableDiv">
+                <div class="row tableHead">
+                    <div class="col-6">Task:</div>
+                    <div class="col-2">Status:</div>
+                </div>
+                <div class="tableRows">
+
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 </body>
 </html>
+
