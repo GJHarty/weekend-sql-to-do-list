@@ -22,12 +22,18 @@ function completeTask(){
     let taskStatus = $(this).parents('.row').data('status');
     console.log(taskStatus);
 
+    // Determine time completed
+    let currentTime = new Date();
+    let completeTime = currentTime.getMonth() + '/' + currentTime.getDate() + '/' + currentTime.getFullYear();
+    console.log(completeTime);
+
     // update task column
     $.ajax({
         type: 'PUT',
         url: `/tasks/${taskId}`,
         data: {
-            taskStatus: 'Complete'
+            taskStatus: `Completed: 
+                        ${completeTime}`
         }
     }).then((res) => {
         console.log('PUT /tasks succeeded', res);
