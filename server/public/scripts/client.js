@@ -24,7 +24,7 @@ function completeTask(){
 
     // Determine time completed
     let currentTime = new Date();
-    let completeTime = currentTime.getMonth() + '/' + currentTime.getDay() + '/' + currentTime.getFullYear();
+    let completeTime = currentTime.getMonth() + '/' + currentTime.getDate() + '/' + currentTime.getFullYear();
     console.log(completeTime);
 
     // update task column
