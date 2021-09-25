@@ -1,68 +1,43 @@
-# Project Name
+# Weekend To-Do List
 
-SQL To-Do List
+A simple to-do list created using JQuery and a Node.js server. This application also uses a postgresql database. Bootstrap was used for styling.
 
-## Description
+## Installation
 
-Creating a to-do list that allows a user to input a task and store it in a database. The task should be displayed on the DOM and it should include a complete and delete button (would like to add an edit feature as well). A user should be able to clearly see their task is completed. 
+Simply clone the respository and install the node modules. You can start the application using npm start
+```
+npm install
+```
+You will then have to setup your postgres database. The first step is to navigate to the pool.js file in the modules folder and update the config database to the name of the database you created.
+```
+const  config = {
+	database:  'YOUR_DB_NAME_HERE', // Here is where you put your database's name
+	host:  'localhost',
+	port:  5432,
+	max:  10,
+	idleTimeoutMillis:  30000
+}
+```
+Finally, you can use the information in the weekend-to-do-app.sql file to get your table setup.
+```
+CREATE  TABLE  "todo-list"(
+	"id"  SERIAL  PRIMARY  KEY,
+	"taskDesc"  VARCHAR (250) NOT  NULL,
+	"status"  VARCHAR(105) DEFAULT  'Pending'
+);
+```
 
-## To Do
+## Usage
 
-[x] Setup Folders
-    [x] html
-        [x] source and link all components
-    [x] css
-    [x] jquery
-    [x] client
-    [x] server
-        [x] import modules
-            [x] express
-            [x] body-parser
-    [x] modules
-        [x] pool
-    [x] routes
-        [x]router
-    [x] install libraries
-        [x] express
-        [x] body-parser
-        [x] postgresql
-            [x] start service
-        [x] pg
-    [x] add gitignore
-    [x] Postico
-        [x] create database
-        [x] create table
+Simply type a task's name or description into the input field and hit submit. The new task will populate in the list below with a default status of pending highlighted by an orange border. 
 
-[x] Client
-    [x] setup onready
-    [x] Post
-    [x] Get  // first
-        [x] append to DOM
-        [x] include data-id
-    [] Put
-        [] setup click handlers
-    [] Delete
+<a href="https://imgur.com/KeNCxSq"><img src="https://i.imgur.com/KeNCxSq.png" title="source: imgur.com" /></a>
+<a href="https://imgur.com/qBjssXY"><img src="https://i.imgur.com/qBjssXY.png" title="source: imgur.com" /></a>
 
-[] router
-    [x] import pool
-    [x] post
-    [x] get  // first
-    [] Put
-    [] Delete
+There are two actions that can be done for tasks which have been added: Complete Task and Delete Task. Clicking Complete Task will update the status to 'Complete', change the border color to green and mark down the date which the task was completed. Clicking the Delete Task button will remove that task from the list. This cannot be reversed.
 
-## Stretch
+<a href="https://imgur.com/7KpOxgk"><img src="https://i.imgur.com/7KpOxgk.png" title="source: imgur.com" /></a>
 
-[] Bootstrap
-    [] buttons
-    [] Inputs
-    [] Responsive
-
-[] feature-confirm-delete    // are you sure?
-
-[] order task inquiry to reverse list  - Query Params research
-
-[] feature-time-completed
-    [] record time
 
 
 

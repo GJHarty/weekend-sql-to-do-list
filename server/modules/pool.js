@@ -2,7 +2,7 @@ const pg = require('pg');
 const url = require('url');
 
 const config = {
-    database: 'weekend-to-do-app',
+    database: 'weekend-to-do-app', // Here is where you put your database's name
     host: 'localhost', 
     port: 5432, 
     max: 10, 
