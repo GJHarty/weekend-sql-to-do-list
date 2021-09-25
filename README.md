@@ -7,6 +7,7 @@ A simple to-do list created using JQuery and a Node.js server. This application 
 Simply clone the respository and install the node modules. You can start the application using npm start
 ```
 npm install
+npm start
 ```
 You will then have to setup your postgres database. The first step is to navigate to the pool.js file in the modules folder and update the config database to the name of the database you created.
 ```
